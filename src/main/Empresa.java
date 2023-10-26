@@ -6,18 +6,11 @@ import java.util.List;
 public class Empresa {
 	
 	private int cantidadEmpleados;
-	private int cuit;
-	private String razonSocial;
 	private List<Empleado> empleados;
 	
 	public Empresa(int cantidadEmleados) {
 		this.empleados = new ArrayList<Empleado>();
 		this.cantidadEmpleados = cantidadEmleados;
-	}
-	
-	public Empresa(int cuit, String razonSocial) {
-		this.cuit = cuit;
-		this.razonSocial = razonSocial;
 	}
 	
 	public void agregarEmpleado(Empleado e) {
@@ -28,7 +21,7 @@ public class Empresa {
 	}
 	
 	
-	public double montoTotal(double monto) {
+	public double montoTotal() {
 		double total = 0;
 		for (Empleado empleado : empleados) {
 			total += empleado.getSalario();
@@ -38,7 +31,7 @@ public class Empresa {
 	
 	public static void main(String[] args) {
 		
-		Empresa ecotermo = new Empresa(3);
+		Empresa ecotermo = new Empresa(9);
 		
 		/*Un empleado temporal con 80hrs trabajadas, casado, sin hijos.*/
 		Empleado sebaTemporal = new Temporal(80, true, 0);
@@ -51,6 +44,14 @@ public class Empresa {
 		
 		/*Un gerente con 160hrs trabajadas, casado, 1 hijo y 10 años de antiguedad*/
 		Empleado juanGerente = new Gerente(160, true, 1, 10);
+		
+		/*agregar empleados*/
+		ecotermo.agregarEmpleado(sebaTemporal);
+		ecotermo.agregarEmpleado(juanGerente);
+		ecotermo.agregarEmpleado(martinPermanente);
+		ecotermo.agregarEmpleado(calebPermanente);
+		
+		System.out.println(ecotermo.montoTotal());
 		
 	}
 
