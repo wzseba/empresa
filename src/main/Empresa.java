@@ -16,8 +16,9 @@ public class Empresa {
 	public void agregarEmpleado(Empleado e) {
 		if(empleados.size() < cantidadEmpleados) {
 			empleados.add(e);
+		}else {
+			throw new Error("limite alcanzado");
 		}
-		throw new Error("Limite alcanzado");
 	}
 	
 	
